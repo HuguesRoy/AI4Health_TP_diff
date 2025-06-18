@@ -4,9 +4,9 @@ from torchvision import transforms
 import torch
 
 
-class BraTSData(data.Dataset):
+class BraTSDataset(data.Dataset):
     def __init__(self, main_path, transform=None, mode="train", test_type = "abnormal", context_encoding=False):
-        super(BraTSData, self).__init__()
+        super().__init__()
         assert mode in ["train", "test"]
 
         self.mode = mode
