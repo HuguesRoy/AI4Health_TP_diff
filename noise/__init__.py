@@ -1,1 +1,1 @@
-from .noise import generate_noise
+from .simplex import generate_noise
