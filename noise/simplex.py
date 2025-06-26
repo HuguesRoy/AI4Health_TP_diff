@@ -387,7 +387,7 @@ def _noise2a(x, y, perm):
     return noise.reshape((x.size, y.size))
 
 
-@njit(float64(float64, float64, float64, int32[:], int32[:]))
+@njit(cache=True)
 def _noise3(x, y, z, perm, perm_grad_index3):
     # Place x coordinates on simplectic honeycomb.
     stretch_offset = (x + y + z) * STRETCH_CONSTANT3
