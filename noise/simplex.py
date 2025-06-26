@@ -387,7 +387,7 @@ def _noise2a(x, y, perm):
     return noise.reshape((x.size, y.size))
 
 
-#@njit(cache=True)
+@njit(cache=True)
 def _noise3(x, y, z, perm, perm_grad_index3):
     # Place x coordinates on simplectic honeycomb.
     stretch_offset = (x + y + z) * STRETCH_CONSTANT3
@@ -395,12 +395,10 @@ def _noise3(x, y, z, perm, perm_grad_index3):
     ys = y + stretch_offset
     zs = z + stretch_offset
 
-    print(type(xs), np.shape(xs))
-
     # Floor to get simplectic honeycomb coordinates of rhombohedron (stretched cube) super-cell origin.
-    xsb = floor(xs)
-    ysb = floor(ys)
-    zsb = floor(zs)
+    xsb = int(floor(xs[0])) 
+    ysb = int(floor(ys[0]))
+    zsb = int(floor(zs[0]))
 
     # Skew out to get actual coordinates of rhombohedron origin. We'll need these later.
     squish_offset = (xsb + ysb + zsb) * SQUISH_CONSTANT3
@@ -901,7 +899,7 @@ def _noise3(x, y, z, perm, perm_grad_index3):
     return value / NORM_CONSTANT3
 
 
-#@njit(cache=True, parallel=True)
+@njit(cache=True, parallel=True)
 def _noise3a(X, Y, Z, perm, perm_grad_index3):
     noise = np.zeros((Z.size, Y.size, X.size), dtype=np.float64)
     for z in prange(Z.size):
