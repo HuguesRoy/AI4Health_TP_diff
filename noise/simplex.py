@@ -1,6 +1,9 @@
 import torch
 import math
 
+
+
+
 def rand_perlin_2d(shape, res, fade = lambda t: 6*t**5 - 15*t**4 + 10*t**3):
     delta = (res[0] / shape[-2], res[1] / shape[-1])
     d = (shape[-2] // res[0], shape[-1] // res[1])
@@ -15,7 +18,7 @@ def rand_perlin_2d(shape, res, fade = lambda t: 6*t**5 - 15*t**4 + 10*t**3):
 
     def dot(grad, shift):
         first = torch.stack((grid[:shape[-2],:shape[-1],0] + shift[0], grid[:shape[-2],:shape[-1], 1] + shift[1]  ), dim = -1)
-        second = grad[...,:shape[-2], :shape[-1]]
+        second = grad[...,:shape[-2], :shape[-1],:]
         # print("first: ",first.shape)
         # print("second :",second.shape)
         return (first * second).sum(dim = -1)
