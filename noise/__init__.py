@@ -1,1 +1,1 @@
-from .simplex import generate_noise
+from .simplex import rand_perlin_2d_octaves
