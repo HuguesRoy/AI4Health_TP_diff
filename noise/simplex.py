@@ -24,7 +24,7 @@ import random
 
 import numpy as np
 import torch
-from numba import njit, prange
+from numba import njit, prange, float64, int32
 
 def generate_noise(noise_type, x, timestep=None, generator=None):
     if noise_type == "simplex":
@@ -387,7 +387,7 @@ def _noise2a(x, y, perm):
     return noise.reshape((x.size, y.size))
 
 
-@njit(cache=True)
+@njit(float64(float64, float64, float64, int32[:], int32[:]))
 def _noise3(x, y, z, perm, perm_grad_index3):
     # Place x coordinates on simplectic honeycomb.
     stretch_offset = (x + y + z) * STRETCH_CONSTANT3
@@ -396,9 +396,9 @@ def _noise3(x, y, z, perm, perm_grad_index3):
     zs = z + stretch_offset
 
     # Floor to get simplectic honeycomb coordinates of rhombohedron (stretched cube) super-cell origin.
-    xsb = int(np.floor(xs))
-    ysb = int(np.floor(ys))
-    zsb = int(np.floor(zs))
+    xsb = floor(xs)
+    ysb = floor(ys)
+    zsb = floor(zs)
 
     # Skew out to get actual coordinates of rhombohedron origin. We'll need these later.
     squish_offset = (xsb + ysb + zsb) * SQUISH_CONSTANT3
