@@ -396,9 +396,9 @@ def _noise3(x, y, z, perm, perm_grad_index3):
     zs = z + stretch_offset
 
     # Floor to get simplectic honeycomb coordinates of rhombohedron (stretched cube) super-cell origin.
-    xsb = floor(xs)
-    ysb = floor(ys)
-    zsb = floor(zs)
+    xsb = np.floor(xs).astype(np.int64)
+    ysb = floor(ys).astype(np.int64)
+    zsb = floor(zs).astype(np.int64)
 
     # Skew out to get actual coordinates of rhombohedron origin. We'll need these later.
     squish_offset = (xsb + ysb + zsb) * SQUISH_CONSTANT3
