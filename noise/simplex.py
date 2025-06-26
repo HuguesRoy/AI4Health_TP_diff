@@ -901,7 +901,7 @@ def _noise3(x, y, z, perm, perm_grad_index3):
     return value / NORM_CONSTANT3
 
 
-@njit(cache=True, parallel=True)
+#@njit(cache=True, parallel=True)
 def _noise3a(X, Y, Z, perm, perm_grad_index3):
     noise = np.zeros((Z.size, Y.size, X.size), dtype=np.float64)
     for z in prange(Z.size):
