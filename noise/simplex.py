@@ -387,7 +387,7 @@ def _noise2a(x, y, perm):
     return noise.reshape((x.size, y.size))
 
 
-@njit(cache=True)
+#@njit(cache=True)
 def _noise3(x, y, z, perm, perm_grad_index3):
     # Place x coordinates on simplectic honeycomb.
     stretch_offset = (x + y + z) * STRETCH_CONSTANT3
@@ -396,7 +396,7 @@ def _noise3(x, y, z, perm, perm_grad_index3):
     zs = z + stretch_offset
 
     print(type(xs), np.shape(xs))
-    
+
     # Floor to get simplectic honeycomb coordinates of rhombohedron (stretched cube) super-cell origin.
     xsb = floor(xs)
     ysb = floor(ys)
