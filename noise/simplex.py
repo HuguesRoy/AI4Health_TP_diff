@@ -8,7 +8,6 @@ def rand_perlin_2d(shape, res, fade=lambda t: 6 * t**5 - 15 * t**4 + 10 * t**3):
 
     for i in range(len(d)):
       if not float(d[i]).is_integer():
-        print(d)
         d[i] = math.ceil(d[i])+1
       else:
         d[i] = int(d[i])
@@ -47,7 +46,7 @@ def rand_perlin_2d_octaves(shape, res, octaves=1, persistence=0.5):
     frequency = 1
     amplitude = 1
     for i in range(octaves):
-        perlin_noise = rand_perlin_2d(shape, (frequency * res[0], frequency * res[1]))
+        perlin_noise = rand_perlin_2d(shape, (frequency * res[0], frequency * res[1])).unsqueeze(1)
         noise += amplitude * perlin_noise # Ensure the shape matches
         frequency *= 2
         amplitude *= persistence
