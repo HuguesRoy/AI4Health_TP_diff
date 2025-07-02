@@ -26,7 +26,7 @@ class BraTSDataset(data.Dataset):
         if mode == "train":
             data_dir = os.path.join(self.root, "train")
             train_normal = os.listdir(data_dir)
-
+            self.slices = len(train_normal)
             self.labels += [0] * len(train_normal)
             self.img_ids += [img_name.split('.')[0] for img_name in train_normal]
             
@@ -40,7 +40,7 @@ class BraTSDataset(data.Dataset):
                 test_mask_dir = os.path.join(self.root, "test", "abnormal", "annotation")
 
                 test_abnormal = os.listdir(test_abnormal_dir)
-
+                self.slices = len(test_abnormal)
                 test_l = test_abnormal                
 
                 self.labels += len(test_abnormal) * [1]
@@ -51,7 +51,8 @@ class BraTSDataset(data.Dataset):
             
                 test_normal_dir = os.path.join(self.root, "test", "normal")
                 test_normal = os.listdir(test_normal_dir)
-           
+                self.slices = len(test_normal)
+
                 test_l = test_normal
                 self.labels += len(test_normal) * [0] #+ len(test_abnormal) * [1]
 
