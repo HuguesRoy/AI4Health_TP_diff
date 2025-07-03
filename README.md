@@ -23,7 +23,7 @@ If you have any questions at any point during the practical session, please eith
 
 During the last part of the lab session (section 5. Application to anomaly detection), you are invited to log the results of your models on the following [Google Sheet](https://docs.google.com/spreadsheets/d/1mXgYuupxjtmwF0A-fIIntp0wJ_F_LoIzj91Hrv3C40A/edit?usp=sharing).
 
-At the end of the practical session, please provide us feedback using the following [Google Form]().
+At the end of the practical session, please provide us feedback using the following [Google Form](https://forms.gle/m8oVfcfCFew2qGqr6).
 
 ## Table of Content
 
