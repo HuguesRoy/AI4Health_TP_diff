@@ -275,12 +275,12 @@ class DiffusionModel(nn.Module):
             return model_mean + torch.sqrt(posterior_variance[t]) * noise
 
     @torch.no_grad()
-    def _sample_training(self,shape, timesteps , betas, device, denoising_process_type = "epsilon" ):
+    def _sample_training(self,shape , betas, device, denoising_process_type = "epsilon" ):
         
         # start from pure noise (for each example in the batch)
         img = torch.randn(shape, device=device)
 
-        for i in reversed(range(0, timesteps)):
+        for i in reversed(range(len(betas))):
             if denoising_process_type == "noise":
                 img = self._p_sample_epsilon(img, i, betas, device)
             elif denoising_process_type == "score":
