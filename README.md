@@ -19,7 +19,7 @@ This practical session introduces diffusion models and an application in medical
 
 The practical session is based on a [Google Colab notebook](), available as read-only. Please copy this notebook in your own Google Drive so that you can edit it.
 
-If you have any questions at any point during the practical session, please either raise your hand or type in your questions on the [Speakup](). You can also upvote and comment on questions from other participants.
+If you have any questions at any point during the practical session, please either raise your hand or type in your questions on the [Speakup](https://web.speakup.info/room/join/71824). You can also upvote and comment on questions from other participants.
 
 During the last part of the lab session (section 5. Application to anomaly detection), you are invited to log the results of your models on the following [Google Sheet](https://docs.google.com/spreadsheets/d/1mXgYuupxjtmwF0A-fIIntp0wJ_F_LoIzj91Hrv3C40A/edit?usp=sharing).
 
