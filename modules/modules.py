@@ -238,7 +238,7 @@ class DiffusionModel(nn.Module):
         alphas_cumprod = torch.cumprod(alphas, axis=0) 
         alphas_cumprod_prev = F.pad(alphas_cumprod[:-1], (1, 0), value=1.0)
 
-        model_mean =  (torch.sqrt(alphas[t])*(1-alphas_cumprod[t])*x + torch.sqrt(alphas_cumprod_prev[t])*(1-alphas[t])*self.forward(x, t))/ (1-alphas_cumprod[t])
+        model_mean =  (torch.sqrt(alphas[t])*(1-alphas_cumprod_prev[t])*x + torch.sqrt(alphas_cumprod_prev[t])*(1-alphas[t])*self.forward(x, t))/ (1-alphas_cumprod[t])
 
         posterior_variance = betas * (1. - alphas_cumprod_prev) / (1. - alphas_cumprod)
 
