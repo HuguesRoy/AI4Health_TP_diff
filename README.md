@@ -17,7 +17,7 @@ This practical session introduces diffusion models and an application in medical
 
 ## Links
 
-The practical session is based on a [Google Colab notebook](https://colab.research.google.com/drive/15SMtpuetkRqI07XZj3h2_ZE5-9aT4gM4?usp=sharing), available as read-only. Please copy this notebook in your own Google Drive so that you can edit it.
+The practical session is based on a [Google Colab notebook](https://drive.google.com/file/d/1Be_-ITtdN0meh4htjJskQoh97rCyqmaB/view?usp=sharing), available as read-only. Please copy this notebook in your own Google Drive so that you can edit it.
 
 If you have any questions at any point during the practical session, please either raise your hand or type in your questions on the [Speakup](https://web.speakup.info/room/join/71824). You can also upvote and comment on questions from other participants.
 
